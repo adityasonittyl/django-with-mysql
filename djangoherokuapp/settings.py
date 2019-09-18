@@ -25,9 +25,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@=(n=*odw3(*@aot7&8*091$4hfw5x$3#9+ou^iyb^8vrpm+$t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1','hdjangoapp.herokuapp.com']
+# Honor the 'X-Forwarded-Proto' header for request.is_secure()
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+ALLOWED_HOSTS = ['127.0.0.1','djangowithmysql.herokuapp.com']
 
 
 # Application definition
@@ -77,6 +80,7 @@ WSGI_APPLICATION = 'djangoherokuapp.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
+#localhost database setting
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -87,6 +91,19 @@ DATABASES = {
         'PORT':'3306'
     }
 }
+
+#server side database setting
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'heroku_82a475d1ce4408d',
+#         'USER':'b822b7a9ff0760',
+#         'PASSWORD':'aa3070f8',
+#         'HOST':'localhost',
+#         'PORT':'3306'
+#     }
+# }
 
 
 # Password validation
@@ -137,7 +154,7 @@ STATICFILES_DIRS = (
 )
 
 #  Add configuration for static files storage using whitenoise
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
