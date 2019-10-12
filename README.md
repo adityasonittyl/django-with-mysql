@@ -1,7 +1,3 @@
-# django-with-mysql-
-django with mysql connection basic setup
-
-
 <div align="center"><h1>  Django Connect With mysql database Setting </h1> </div>
 <div align="center"> In this repo, I created django project with msysql database.you can my setting for mysql connection. </div>
 
@@ -11,7 +7,7 @@ Usage
 You can clone the project and run the following command to install: 
 
 ```bash
-$ git clone https://github.com/rahulcs754/Todolist_Django.git
+$ git clone https://github.com/rahulcs754/django-with-mysql-.git
 ```
 
 *I consider, You have already installed virtualenv and pip.*
