@@ -38,13 +38,11 @@ pip install -r requirements.txt
 ```
 
 create database  
------------------
 ```bash
 $ python manage.py migrate
 ```
 
  create admin username and password
-------------------------------------
 ```bash
 $ python manage.py createsuperuser
 ```
@@ -59,7 +57,6 @@ $ python manage.py runserver
 
 
 Stack
-------
 python3
 
 
